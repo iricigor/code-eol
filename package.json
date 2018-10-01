@@ -34,7 +34,21 @@
 				"type": "object",
 				"title": "code-eol Configuration",
 				"properties": {
-					"code-eol.color": {
+					"code-eol.newlineColor": {
+						"type": [
+							"string",
+							"null"
+						],
+						"default": null
+					},
+					"code-eol.returnColor": {
+						"type": [
+							"string",
+							"null"
+						],
+						"default": null
+					},
+					"code-eol.crlfColor": {
 						"type": [
 							"string",
 							"null"

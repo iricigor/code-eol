@@ -5,10 +5,14 @@ This shows newline (technically end-of-line) characters, similar to how Atom or 
 You can customize the color and character of each kind of end-of-line character by adding the following to your settings:
 (NOTE: Make sure to reload VS Code after changing settings for them to take effect)
 ```
-        "code-eol.color"  :"#2a3f47",
+        // characters
         "code-eol.newlineCharacter":"¬",
         "code-eol.returnCharacter" :"⇠",
         "code-eol.crlfCharacter"   :"↵",
+        // colors
+        "code-eol.newlineColor"  :"#2a3f47",
+        "code-eol.returnColor"   :"#2a3f47",
+        "code-eol.crlfColor"     :"#2a3f47",
         // some other symbols you might want to use:
             // ↓
             // ←

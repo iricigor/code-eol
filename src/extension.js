@@ -6,21 +6,25 @@ var vscode = require("vscode");
 function activate(context) {
     const configuration = vscode.workspace.getConfiguration('code-eol')
     const defaultValues = {
-        color           : '#9e9e9e', // gray
+        newlineColor    : '#9e9e9e', // gray
+        returnColor     : '#9e9e9e',
+        crlfColor       : '#9e9e9e',
         newlineCharacter: '↓',
         returnCharacter : '←',
         crlfCharacter   : '↵',
     }
     // set color and characters at start
-    const decorationColor = configuration.color            ? configuration.color            : defaultValues.color
+    const newline_color   = configuration.newlineColor     ? configuration.newlineColor     : defaultValues.newlineColor
+    const return_color    = configuration.returnColor      ? configuration.returnColor      : defaultValues.returnColor
+    const crlf_color      = configuration.crlfColor        ? configuration.crlfColor        : defaultValues.crlfColor
     const newline_char    = configuration.newlineCharacter ? configuration.newlineCharacter : defaultValues.newlineCharacter
     const return_char     = configuration.returnCharacter  ? configuration.returnCharacter  : defaultValues.returnCharacter
     const crlf_char       = configuration.crlfCharacter    ? configuration.crlfCharacter    : defaultValues.crlfCharacter
     // init some vars outside of updateDecorations for efficiency
-    const render_newline = { after: { contentText: newline_char, color: decorationColor } }
-    const render_return  = { after: { contentText: return_char, color : decorationColor } }
-    const render_crlf    = { after: { contentText: crlf_char, color   : decorationColor } }
-    const render_blank   = { after: { contentText: '', color          : decorationColor } }
+    const render_newline = { after: { contentText: newline_char, color: newline_color   } }
+    const render_return  = { after: { contentText: return_char, color : return_color    } }
+    const render_crlf    = { after: { contentText: crlf_char, color   : crlf_color      } }
+    const render_blank   = { after: { contentText: '', color          : newline_color   } }
     var match
     var the_render_option
     const regEx = /(\r(?!\n))|(\r?\n)/g
